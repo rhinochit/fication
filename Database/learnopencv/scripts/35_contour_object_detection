@@ -1,0 +1,57 @@
+'''
+contouring around images
+'''
+import cv2
+import numpy as np
+def nothing(x):
+    pass
+
+cv2.namedWindow("wscube")  #creating window to display taskbar in window wscube
+cv2.createTrackbar("th","wscube",0,255,nothing)  
+
+cv2.createTrackbar("lb","wscube",0,255,nothing)
+cv2.createTrackbar("lg","wscube",0,255,nothing)
+cv2.createTrackbar("lr","wscube",0,255,nothing)
+
+cv2.createTrackbar("hb","wscube",255,255,nothing)
+cv2.createTrackbar("hg","wscube",255,255,nothing)
+cv2.createTrackbar("hr","wscube",255,255,nothing)
+
+cap = cv2.VideoCapture(0)
+while cap.isOpened():
+    r,frame= cap.read()
+    if r == True:
+        thr =   cv2.getTrackbarPos("th", "wscube") #creating traackbar posn updater
+        
+        LB =   cv2.getTrackbarPos("lb", "wscube")
+        LG =   cv2.getTrackbarPos("lg", "wscube")
+        LR =   cv2.getTrackbarPos("lr", "wscube")
+        
+        HB =   cv2.getTrackbarPos("hb", "wscube")
+        HG =   cv2.getTrackbarPos("hg", "wscube")
+        HR =   cv2.getTrackbarPos("hr", "wscube")
+        
+        lower = np.array([LB,LG,LR]) #creatig taskbar initialiser as [blue,green,red] in np.arrray
+        upper = np.array([HB,HG,HR])
+        
+        frame = cv2.flip(frame,1)
+        frame = cv2.resize(frame,(400,300))
+        hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+        m = cv2.inRange(hsv, lower, upper)
+        res = cv2.bitwise_and(frame,frame, mask = m)
+        fr = cv2.bitwise_not(res)
+        
+        _, thi = cv2.threshold(m,thr,255,cv2.THRESH_BINARY )
+        cnt,hr =  cv2.findContours(thi,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+        cv2.drawContours(frame,cnt,-1,(255,0,0),2)    
+        
+        cv2.imshow("thr",thi)
+        cv2.imshow("ws2",res)
+        cv2.imshow("ws1",m)
+        cv2.imshow("ws",frame)
+        if cv2.waitKey(25) & 0xff == ord("q"):
+            break
+    else:
+        break
+cap.release()
+cv2.destroyAllWindows()
