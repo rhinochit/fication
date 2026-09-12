@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fication Camera</title>
+    <link rel="stylesheet" href="/static/index/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Top App Header -->
+        <header class="app-header">
+            <h1>FICATION</h1>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Camera Viewfinder Frame -->
+            <div class="camera-frame">
+                <!-- Live HTML5 Video Element -->
+                <div class="viewfinder">
+                    <video id="cameraFeed" autoplay playsinline muted></video>
+                    <img id="resultImage" alt="Scan result">
+                </div>
+
+                <!-- Camera Controls Footer (Cleaned) -->
+                <div class="camera-controls">
+                    <div class="status-indicator">
+                        <i class="fa-solid fa-circle"></i>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shutter Button Section -->
+            <div class="shutter-section">
+                <button class="shutter-button" id="shutterBtn">
+                    <div class="shutter-inner"></div>
+                </button>
+                <span class="shutter-label">SHUTTER</span>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="/" class="nav-item active"> <!-- Move active here -->
+                <i class="fa-solid fa-expand"></i>
+                <span>SCAN</span>
+            </a>
+            <a href="/network" class="nav-item"> <!-- Remove active from here -->
+                <i class="fa-solid fa-network-wired"></i>
+                <span>NETWORK</span>
+            </a>
+            <a href="/formal_cards" class="nav-item">
+                <i class="fa-solid fa-id-card"></i>
+                <span>MY CARDS</span>
+            </a>
+            <a href="/social_cards" class="nav-item">
+                <i class="fa-solid fa-user"></i>
+                <span>MY PROFILE</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="static/index/script.js"></script>
+</body>
+</html>

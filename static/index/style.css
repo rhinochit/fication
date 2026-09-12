@@ -1,0 +1,212 @@
+:root {
+    --bg-main: #222220;
+    --bg-container: #ECE6DA;
+    --accent-yellow: #FFD700;
+    --text-dark: #1A1A1A;
+    --border-dark: #2C2C2A;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 420px;
+    height: 100vh;
+    max-height: 880px;
+    background-color: var(--bg-container);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+/* Header */
+.app-header {
+    padding: 14px 20px 6px 20px;
+}
+
+.app-header h1 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-dark);
+}
+
+/* Main Content - Centered items */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+}
+
+/* Camera Frame */
+.camera-frame {
+    background-color: var(--border-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid var(--border-dark);
+    width: 100%;
+    max-width: 360px;
+}
+
+/* Viewfinder */
+.viewfinder {
+    position: relative;
+    height: 340px;
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Live Camera Video Stream */
+#cameraFeed {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); /* Mirror effect for natural alignment */
+}
+
+/* Annotated capture (photo + recognition placard) shown after a scan —
+   hidden until script.js sets a src, same mirror as the live feed so it
+   doesn't visually flip when swapped in. */
+#resultImage {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+    z-index: 2;
+}
+#resultImage.visible {
+    display: block;
+}
+
+/* Camera Controls Footer */
+.camera-controls {
+    background-color: var(--border-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px;
+    color: #fff;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    font-size: 0.65rem;
+    color: #A0A09C;
+    gap: 6px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.status-indicator i {
+    font-size: 0.5rem;
+    color: var(--accent-yellow);
+}
+
+/* Shutter Section - Centered */
+.shutter-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid var(--border-dark);
+    width: 100%;
+    max-width: 360px;
+}
+
+.shutter-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--border-dark);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #111;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.shutter-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #111;
+}
+
+.shutter-inner {
+    width: 42px;
+    height: 42px;
+    background-color: var(--accent-yellow);
+    border-radius: 50%;
+    border: 3px solid var(--border-dark);
+}
+
+.shutter-label {
+    background-color: var(--border-dark);
+    color: var(--accent-yellow);
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    margin-top: 6px;
+    letter-spacing: 1px;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+    background-color: var(--bg-container);
+    border-top: 1px solid #Dcd6cc;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0 16px 0;
+}
+
+.nav-item {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #666;
+    font-size: 0.6rem;
+    font-weight: 700;
+    gap: 4px;
+    transition: color 0.2s;
+}
+
+.nav-item i {
+    font-size: 1.1rem;
+}
+
+.nav-item.active {
+    color: var(--text-dark);
+}

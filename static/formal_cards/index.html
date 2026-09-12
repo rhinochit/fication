@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formal Profile</title>
+    <link rel="stylesheet" href="/static/formal_cards/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Main Scrollable Content -->
+        <main class="content-scroll">
+            <div class="brand-row">
+                <span class="brand-title">FICATION</span>
+                <span class="formal-badge"><span class="dot"></span> FORMAL PROFILE</span>
+            </div>
+
+            <!-- Digital Card Component with Flip Structure -->
+            <div class="digital-card" id="flipCard">
+                <div class="card-flipper">
+                    <!-- FRONT SIDE -->
+                    <div class="card-face card-front">
+                        <div class="card-top-row">
+                            <div class="avatar-container">
+                                <img id="profileAvatar" src="" alt="Avatar">
+                            </div>
+                            <div class="badges-col">
+                                <span class="badge verified">VERIFIED</span>
+                                <span class="badge exec">EXEC</span>
+                            </div>
+                            <div class="qr-placeholder">
+                                <i class="fa-solid fa-qrcode"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-text-info">
+                            <h2 id="profileName">--</h2>
+                            <p id="profileTitle" class="job-title">--</p>
+                            <p id="profileCompany" class="company-name">--</p>
+                        </div>
+
+                        <div class="card-divider"></div>
+
+                        <div class="card-footer-row">
+                            <span id="profileEmail"><i class="fa-regular fa-envelope"></i> --</span>
+                            <span id="profilePhone"><i class="fa-solid fa-phone"></i> --</span>
+                            <span class="flip-hint"><i class="fa-solid fa-rotate"></i> FLIP CARD</span>
+                        </div>
+                    </div>
+
+                    <!-- BACK SIDE -->
+                    <div class="card-face card-back">
+                        <div class="back-content">
+                            <h3>DIGITAL SECURITY METADATA</h3>
+                            <p><strong>ID:</strong> <span id="backId">--</span></p>
+                            <p><strong>Network Status:</strong> Authenticated Node</p>
+                            <p><strong>Encryption:</strong> RSA-4096 Secure vCard</p>
+                            <div class="card-divider"></div>
+                            <p class="back-instruction"><i class="fa-solid fa-rotate"></i> Tap again to flip back</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-hint">
+                <i class="fa-solid fa-hand-pointer"></i> DOUBLE-TAP CARD OR CLICK TO FLIP
+                <button class="flip-btn" id="flipBtn"><i class="fa-solid fa-rotate"></i> FLIP</button>
+            </div>
+
+            <!-- Dynamic JSON Content Boxes -->
+            <div class="info-box">
+                <h3>"CURRENTLY WORKING ON..."</h3>
+                <p id="boxWorkingOn">Loading...</p>
+            </div>
+
+            <div class="info-box">
+                <h3>"EFFICIENT IN THESE LANGUAGES & STACK"</h3>
+                <p id="boxStack">Loading...</p>
+            </div>
+
+            <div class="info-box">
+                <h3>"THE PROFESSIONAL PROJECT I'M MOST PROUD OF"</h3>
+                <p id="boxProudOf">Loading...</p>
+            </div>
+
+            <div class="info-box">
+                <h3>"A WORK PHILOSOPHY I SWEAR BY"</h3>
+                <p id="boxPhilosophy">Loading...</p>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="/" class="nav-item">
+                <i class="fa-solid fa-expand"></i>
+                <span>SCAN</span>
+            </a>
+            <a href="/network" class="nav-item">
+                <i class="fa-solid fa-network-wired"></i>
+                <span>NETWORK</span>
+            </a>
+            <a href="/formal_cards" class="nav-item active">
+                <i class="fa-solid fa-id-card"></i>
+                <span>MY CARDS</span>
+            </a>
+            <a href="/social_cards" class="nav-item">
+                <i class="fa-solid fa-user"></i>
+                <span>MY PROFILE</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="/static/formal_cards/script.js"></script>
+</body>
+</html>
