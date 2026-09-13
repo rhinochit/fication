@@ -1,4 +1,9 @@
 __pycache__/
 *.pyc
 .DS_Store
-saved_photos/
+test1/saved_photos/
+test1/connections_log.json
+face_recognition_prototype2/images/
+face_recognition_prototype2/images_output/
+face_recognition_prototype2/*.db
+face_recognition_prototype2/*.db.*

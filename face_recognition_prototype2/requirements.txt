@@ -1,0 +1,16 @@
+opencv-contrib-python
+mediapipe
+numpy
+torch --index-url https://download.pytorch.org/whl/cpu
+transformers
+
+# This variant uses a Hugging Face CLIP model for identity matching instead
+# of dlib — no C++ compiler / Visual Studio Build Tools needed, unlike
+# face_recognition_prototype (the dlib version). torch is CPU-only here;
+# the --index-url line needs to be a separate `pip install` if your pip
+# doesn't support inline index URLs in a requirements file:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements.txt
+#
+# The CLIP model itself (~600MB) downloads automatically on first run of
+# enroll.py / recognize.py / demo.py and is cached locally after that.
